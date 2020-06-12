@@ -1,0 +1,35 @@
+.home-newsletter {
+    background: linear-gradient(to right, $tertiary-color 0%, $secondary-color 28%, $primary-color 100%);
+    text-align: center;
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h3 {
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .btn-subscribe {
+                background-color: $blacky-color;
+                color: white;
+
+                &:hover {
+                    background-color: rgb(32, 32, 32);
+                    border: 1px solid $tertiary-color;
+                }
+            }
+
+            .newsletter-field {
+                height: 60px;
+                background-color: #f3f3f3;
+            }
+        }
+    }
+}

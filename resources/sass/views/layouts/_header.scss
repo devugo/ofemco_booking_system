@@ -1,0 +1,56 @@
+.navbar {
+    .site-logo {
+        width: 100px; 
+        height: 40px;
+    }
+    
+    .dropdown-menu {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+        padding-top: 0;
+        padding-bottom: 0;
+
+        a {
+            height: 70px;
+            display: flex;
+            align-items: center;
+
+            &:active {
+                background-color: $primary-color;
+                color: white !important;
+            }
+        }
+    }
+
+    li a:hover  {
+        color: $primary-color !important;
+    }
+
+    li a.active {
+        color: $primary-color !important;
+        font-weight: bold;
+    }
+
+    li a.btn {
+        color: white !important;
+        background-color: $primary-color;
+        border-radius: 20px;
+        margin-right: 10px;
+        color: white;
+
+        &:hover {
+            background-color: inherit;
+            color: $primary-color !important;
+            border: 1px solid $primary-color;
+        }
+    }
+
+    #logout-btn {
+        background-color: inherit;
+        background-color: $secondary-color;
+
+        &:hover {
+            background-color: rgb(1, 43, 170);
+            color: white !important;
+        }
+    }
+}

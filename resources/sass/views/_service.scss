@@ -1,0 +1,146 @@
+.home-abstract {
+    &__first {
+        margin-bottom: 30px;
+        div{
+            margin-top: 50px;
+
+            ul {
+                margin-left: 30px;
+                list-style-type: square;
+            }
+        }
+        
+    }
+    &__second {
+        img {
+            height: 300px;
+            width: 100%;
+        }
+    }
+}
+.home-pricing {
+    background-color: #f3f3f3;
+
+    .title {
+        margin-bottom: 50px;
+    }
+
+    .sub-title {
+        margin-bottom: 30px;
+    }
+
+    .price-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 10px;
+        margin: 20px 0;
+        @include transition-ease;
+        
+        &__icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid $primary-color;
+            margin-bottom: 10px;
+            @include transition-ease;
+
+            i {
+                color: $primary-color;
+                @include transition-ease;
+            }
+        }
+
+        h5 {
+            font-size: 15px;
+            color: grey;
+        }
+
+        &:hover {
+            cursor: pointer;
+            transform: translateY(-10px);
+            @include tertiary-gradient;
+        }
+
+        &:hover .price-card__icon {
+            @include tertiary-gradient;
+
+            i {
+                color: white;
+            }
+        }
+
+        &:hover h5, &:hover .single-feature, &:hover .price-card__price-prev {
+            color: #f3f3f3 !important;
+        }
+        
+        &__features {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: grey;
+        }
+
+        &__price {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &-main {
+                font-size: 20px;
+            }
+            &-prev {
+                color: grey;
+                text-decoration: line-through;
+                // font-size: 15px;
+            }
+        }
+
+        .order-btn {
+            @include primary-gradient;
+            
+            position: relative;
+            color: white;
+
+            &:hover {
+                color: white;
+            }
+
+            span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+            }
+
+            span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+            }
+            &:hover span {
+                padding-right: 25px;
+            }
+            
+            &:hover span:after {
+                opacity: 1;
+                right: 0;
+            }
+        }
+    }
+}
+
+@include media-md {
+    .home-abstract {
+        &__second {
+            img {
+                height: 400px;
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+.home-footer-content {
+    background-color: rgb(15, 14, 14);
+    color: grey;
+
+    h6 {
+        color: #f3f3f3;
+    }
+
+    .brief-about {
+        img {
+            width: 80px;
+            height: 60px;
+        }
+
+        p {
+            line-height: 20px;
+        }
+
+        a {
+            @include secondary-gradient;
+
+            &:hover {
+                background: inherit;
+                border: 1px solid $primary-color;
+            }
+        }
+    }
+
+    .footer__service-one, .footer__service-two {
+        ul {
+            margin-left: 30px;
+            list-style-type: square;
+            color: $primary-color;
+
+            li {
+                padding: 5px;
+                a {
+                    color: grey;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: none;
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer__social-links {
+        .links {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            a {
+                @include secondary-gradient;
+                padding: 10px;
+                margin: 3px;
+                @include transition-ease;
+
+                &:hover {
+                    background: inherit;
+                    border: 1px solid $primary-color;
+                }
+                
+                &:nth-child(1) {
+                    color: rgb(16, 61, 195);
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+                &:nth-child(2) {
+                    color: pink;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+                &:nth-child(3) {
+                    color: rgb(50, 197, 255);
+                }
+                &:nth-child(4) {
+                    color: rgb(8, 8, 129);
+                    padding-left: 12px;
+                    padding-right: 12px;
+                }
+                &:nth-child(5) {
+                    color: green;
+                }
+                &:nth-child(6) {
+                    color: rgb(226, 53, 53);
+                }
+                &:nth-child(7) {
+                    color: dodgerblue;
+                    padding-left: 14px;
+                    padding-right: 14px;
+                }
+
+                i {
+                    font-size: 30px;
+
+                }
+            }
+        }
+    }
+}

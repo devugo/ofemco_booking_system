@@ -1,0 +1,36 @@
+.breadcrumb {
+    background: linear-gradient(to right, $secondary-color 0%, $primary-color 28%, #4dbcec 100%);
+
+    &-body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+
+        ol {
+            background: inherit;
+        }
+        
+        a {
+            color: #f3f3f3;
+            font-weight: bold;
+
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+@include media-md {
+    .breadcrumb {
+        &-body {
+            flex-direction: row;
+            justify-content: space-between;
+            margin-left: 15px;
+            // align-items: center;
+            // justify-content: space-between;
+        }
+    }
+}

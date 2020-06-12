@@ -1,0 +1,97 @@
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1;
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+.secondary-color {
+    color: $secondary-color;
+}
+
+.primary-color {
+    color: $primary-color;
+}
+
+.tertiary-color {
+    color: $tertiary-color;
+}
+
+section {
+    padding: 50px 10px;
+
+    .section-title {
+        h4{
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.short-underline {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: 35px;
+        height: 5px;
+        width: 50px;
+        background-color: $primary-color;
+    }
+
+}
+
+.devugo-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 6px;
+    overflow: hidden;
+    background: white;
+    padding: 20px;
+}
+
+.input-icon {
+    display: flex;
+
+    .form-control:focus, .form-control:hover, .form-control:active, .form-control {
+        border-radius: 0 !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+    span {
+        background-color: $secondary-color;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        width: 40px;
+        justify-content: center;
+        
+        i {
+            color: #f3f3f3;
+            font-size: 10px;
+        }
+    }
+}
+
+.input-rm {
+    outline: none;
+}
+
+.card-header {
+    // @include secondary-gradient;
+    background-color: grey;
+    color: white;
+}
+
+@include media-md {
+    section {
+        padding: 50px;
+    }
+}
