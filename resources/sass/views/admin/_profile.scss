@@ -1,0 +1,34 @@
+.profile-card{
+    // padding: 10px;
+    .profile-image {
+        position: relative;
+        background-image: url('../../../../public/storage/images/settings/bg-1.jpeg');
+        height: 150px;
+        margin-bottom: 80px;
+        img {
+            position: absolute;
+            left: calc(50% - 65px);
+            bottom: -65px;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+        }
+    }
+
+    .profile-name {
+        margin-top: 30px;
+        h4 {
+            font-size: 20px;
+        }
+    }
+    .profile-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+        span {
+            font-size: 18px;
+        }
+    }
+}

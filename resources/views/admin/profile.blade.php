@@ -1,39 +1,33 @@
-@extends('admin.layouts.structure')
+@extends('admin.layouts.structure', ['sidebar_title' => 'Profile'])
 
 @section('dashboard_content')
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <div class="card">
-                    <div class="text-center" class="profile-image">
-                        <img style="width: 150px; height: 150px; border-radius: 50%;" src="/storage/images/photos/{{ Auth::user()->photo }}" alt="user_avatar" />
-                        <button onclick="document.getElementById('photo').click()" class="btn btn-info">
+                <div class="card profile-card">
+                    <div class="text-center profile-image">
+                        <img src="/storage/images/photos/{{ Auth::user()->photo }}" alt="user_avatar" />
+                    </div>
+                    <div class="text-center">
+                        <button onclick="document.getElementById('photo').click()" class="btn btn-info devugo-button">
                             Update
                         </button>
                         <form method="POST" action={{ route('user.add_photo') }} enctype="multipart/form-data">
                             @csrf
                             <input style="display: none;" onchange="form.submit()" id="photo" type="file" name="photo" />
                         </form>
-                    </div><hr />
-                    <div>
-                        <h4><strong>Lastname:</strong> {{ Auth::user()->lastname }}</h4>
-                    </div><hr />
-                    <div>
-                        <h4><strong>Firstname:</strong> {{ Auth::user()->firstname }}</h4>
-                    </div><hr />
-                    <div>
-                        <h4><strong>Email:</strong> {{ Auth::user()->email }}</h4>
-                    </div><hr />
-                    <div>
-                        <h4><strong>Username:</strong> {{ Auth::user()->username }}</h4>
-                    </div><hr />
-                    <div>
-                        <h4><strong>Phone:</strong> {{ Auth::user()->phone }}</h4>
-                    </div><hr />
+                    </div>
+                    <div class="text-center profile-name">
+                        <h4>{{ Auth::user()->lastname }} {{ Auth::user()->firstname }}</h4>
+                    </div>
+                    <div class="profile-contact">
+                        <span><i class="fa fa-envelope"></i> {{Auth::user()->email }}</span>
+                        <span>@if(Auth::user()->phone != '')<i class="fa fa-phone"></i>@endif {{ Auth::user()->phone }}</span>
+                    </div>
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="card">
+                <div class="card margin-below">
                     <div class="card-header">{{ __('Update') }}</div>
 
                     <div class="card-body">
@@ -97,34 +91,6 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">{{ __('Date of birth') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="date_of_birth" value="{{Auth::user()->date_of_birth}}" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}" autocomplete="date_of_birth" autofocus>
-
-                                    @error('date_of_birth')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" value="{{Auth::user()->email}}" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
                                 <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                                 <div class="col-md-6">
@@ -140,7 +106,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary devugo-button">
                                         {{ __('Update') }}
                                     </button>
                                 </div>
@@ -200,7 +166,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary devugo-button">
                                         {{ __('Change') }}
                                     </button>
                                 </div>
@@ -211,4 +177,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('javascript')
+   
 @endsection

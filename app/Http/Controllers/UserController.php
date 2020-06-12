@@ -85,12 +85,10 @@ class UserController extends Controller
         }
         
         $validate = $this->validate($request, [
-            'email' => "bail|required|unique:users,email,$userId|max:100",
             'username' => "bail|required|unique:users,username,$userId|max:100",
             'firstname' => 'required|max:100',
             'lastname' => 'required|max:100',
             'othernames' => 'nullable|max:150',
-            'date_of_birth' => 'nullable|date',
             'phone' => 'nullable|max:20',
         ]);
         

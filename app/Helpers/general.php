@@ -48,19 +48,40 @@ if(!function_exists('alertBox'))
     function alertBox()
     {
         $message = session('devugo_status');
+        $icon = session('devugo_type');
+
+        if($icon === 'success'){
+            $title = 'Success!';
+        }else{
+            $title = 'Error!';
+        }
+
+        // convert $type of icon set on the backend from danger to warning
+        if($icon == 'danger'){ 
+            $icon = 'warning';
+        }
         if(session()->exists('devugo_status')){
             return '
-                <div id="alert-box" style="z-index: 5; width: 400px; position: fixed; top: 0; left: calc(50% - 200px);" class="text-center alert alert-' . session('devugo_type') . ' alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    ' . $message . '
-                </div>
-                <script>
-                    var item = document.getElementById("alert-box");
-                    setTimeout(function(){
-                        item.style.display = "none";
-                    }, 5000);
-                </script>
+                <script>swal({
+                    title: "' . $title . '",
+                    text: "' . $message . '",
+                    icon: "' . $icon . '",
+                    buttons: false
+                });</script>
+                
             ';
+            // return '
+            //     <div id="alert-box" style="z-index: 5; width: 400px; position: fixed; top: 0; left: calc(50% - 200px);" class="text-center alert alert-' . session('devugo_type') . ' alert-dismissible">
+            //         <button type="button" class="close" data-dismiss="alert">&times;</button>
+            //         ' . $message . '
+            //     </div>
+            //     <script>
+            //         var item = document.getElementById("alert-box");
+            //         setTimeout(function(){
+            //             item.style.display = "none";
+            //         }, 5000);
+            //     </script>
+            // ';
         }
     }
 }

@@ -34,6 +34,31 @@ h3 {
   color: #0078ac;
 }
 
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline: 0px !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+}
+
+.devugo-button {
+  background: #3ab3e7 !important;
+}
+
+.devugo-button:hover {
+  background: #0078ac !important;
+}
+
 section {
   padding: 50px 10px;
 }
@@ -56,6 +81,10 @@ section .section-title h4 {
   height: 5px;
   width: 50px;
   background-color: #3ab3e7;
+}
+
+.card.margin-below {
+  margin-bottom: 50px;
 }
 
 .devugo-card {
@@ -847,10 +876,10 @@ section .section-title h4 {
 }
 
 .devugo-breadcrumb {
-  display: flex;
-  align-items: center;
   background-color: white;
   height: 50px;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
 .devugo-breadcrumb div {
@@ -866,5 +895,40 @@ section .section-title h4 {
 
 .user-panel {
   background-color: #f3f3f3;
+}
+
+.profile-card .profile-image {
+  position: relative;
+  background-image: url(/images/bg-1.jpeg?e6125def99b6f2bcaffe777807753246);
+  height: 150px;
+  margin-bottom: 80px;
+}
+
+.profile-card .profile-image img {
+  position: absolute;
+  left: calc(50% - 65px);
+  bottom: -65px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+}
+
+.profile-card .profile-name {
+  margin-top: 30px;
+}
+
+.profile-card .profile-name h4 {
+  font-size: 20px;
+}
+
+.profile-card .profile-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-card .profile-contact span {
+  font-size: 18px;
 }
 

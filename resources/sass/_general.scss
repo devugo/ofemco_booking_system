@@ -21,6 +21,33 @@ h1, h2, h3 {
     color: $tertiary-color;
 }
 
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+.devugo-button {
+    background: $primary-color !important;
+
+    &:hover {
+        background: $tertiary-color !important;
+    }
+}
+
+
 section {
     padding: 50px 10px;
 
@@ -45,7 +72,10 @@ section {
         width: 50px;
         background-color: $primary-color;
     }
+}
 
+.card.margin-below {
+    margin-bottom: 50px;
 }
 
 .devugo-card {

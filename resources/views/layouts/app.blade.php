@@ -14,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     @include('includes.top')
+    @yield('css')
 </head>
 <body>
     <div id="app">
@@ -30,4 +31,5 @@
     </div>
 </body>
     @include('includes.bottom')
+    @yield('javascript')
 </html>

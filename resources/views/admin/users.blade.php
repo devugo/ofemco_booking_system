@@ -1,4 +1,4 @@
-@extends('admin.layouts.structure')
+@extends('admin.layouts.structure', ['sidebar_title' => 'Users'])
 
 @section('dashboard_content')
     <div class="container">
