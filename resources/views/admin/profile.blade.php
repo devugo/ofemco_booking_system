@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <div>
-                        <img style="width: 200px; height: 200px; border-radius: 50%;" src="/storage/images/photos/{{ Auth::user()->photo }}" alt="user_avatar" />
+                    <div class="text-center" class="profile-image">
+                        <img style="width: 150px; height: 150px; border-radius: 50%;" src="/storage/images/photos/{{ Auth::user()->photo }}" alt="user_avatar" />
                         <button onclick="document.getElementById('photo').click()" class="btn btn-info">
                             Update
                         </button>

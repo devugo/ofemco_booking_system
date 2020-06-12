@@ -846,6 +846,24 @@ section .section-title h4 {
   font-weight: bold;
 }
 
+.devugo-breadcrumb {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 50px;
+}
+
+.devugo-breadcrumb div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.devugo-breadcrumb div span span:nth-child(2) {
+  color: grey;
+}
+
 .user-panel {
   background-color: #f3f3f3;
 }
