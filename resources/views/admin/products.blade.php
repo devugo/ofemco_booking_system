@@ -1,94 +1,100 @@
-@extends('admin.layouts.structure')
+@extends('admin.layouts.structure', ['sidebar_title' => 'Products'])
 
 @section('dashboard_content')
     <div class="container">
-        <div style="display: flex; justify-content: flex-end;">
-            <a class="btn btn-success" href="{{ route('admin.add_product') }}">
+        <div style="display: flex; justify-content: space-between;">
+            <h3 class="short-underline">Products</h3>
+            <a style="align-self: flex-start;" class="btn btn-success" href="{{ route('admin.add_product') }}">
                 Add +
             </a>
-        </div><br />
+        </div><br /><br />
         <div class="tab-summary">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="{{ route('admin.products') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
-                                <p>{{ $productsCount }}</p>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.products') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-product-hunt"></i>
+                                </div>
                             </div>
-                            <div>
+                            <div class="count">
                                 <p>Active Products</p>
+                                <p>{{ $productsCount }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ route('admin.products', 'inactive') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
-                                <p>{{ $inactiveProductsCount }}</p>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.products', 'inactive') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-product-hunt"></i>
+                                </div>
                             </div>
-                            <div>
+                            <div class="count">
                                 <p>Inactive Products</p>
+                                <p>{{ $inactiveProductsCount }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="table-responsive">
-            <h2>Products</h2>
-            <table class="table table-bordered" id="tab-table">
-                <thead>
-                    <tr class="text-center">
-                        <th>Service</th>
-                        <th>Icon</th>
-                        <th>Title</th>
-                        <th>Sub Title</th>
-                        <th>Features</th>
-                        <th>Slashed Cost (NGN)</th>
-                        <th>Actual Cost (NGN)</th>
-                        <th>Created At</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(count($products) > 0)
-                        @foreach($products as $product)
-                            <tr class="text-center">
-                                <td>{{ $product->service->title }}</td>
-                                <td>{{ $product->icon }}</td>
-                                <td>{{ $product->title }}</td>
-                                <td>{{ $product->sub_title }}</td>
-                                <td>{{ $product->features }}</td>
-                                <td>{{ currencyFormatter($product->slashed_cost, false) }}</td>
-                                <td>{{ currencyFormatter($product->actual_cost, false) }}</td>
-                                <td><span class="badge badge-pill badge-primary">{{ $product->createdAtAgo() }}</span></td>
-                                <td>
-                                    @if($product->deleted_at === NULL)
-                                        <a style="font-size: 8px;" href="{{ route('admin.edit_product', $product->id) }}" class="btn btn-default">
-                                            Edit
-                                        </a>
-                                        <button style="font-size: 8px;" onclick="openModal({{ $product->id }}, 'delete')" class="btn btn-danger">
-                                            Remove
-                                        </button>
-                                    @else
-                                        <button style="font-size: 8px;" onclick="openModal({{ $product->id }}, 'restore')" class="btn btn-success">
-                                            Restore
-                                        </button>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
-                    @else
+        </div><br /><br />
+        <div class="devugo-card">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="devugo-table">
+                    <thead>
                         <tr class="text-center">
-                            <td colspan="7">No Products added!</td>
+                            <th>Service</th>
+                            <th>Icon</th>
+                            <th>Title</th>
+                            <th>Sub Title</th>
+                            <th>Features</th>
+                            <th>Slashed Cost (NGN)</th>
+                            <th>Actual Cost (NGN)</th>
+                            <th>Created At</th>
+                            <th>Action</th>
                         </tr>
-                    @endif
-                
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @if(count($products) > 0)
+                            @foreach($products as $product)
+                                <tr class="text-center">
+                                    <td>{{ $product->service->title }}</td>
+                                    <td>{{ $product->icon }}</td>
+                                    <td>{{ $product->title }}</td>
+                                    <td>{{ $product->sub_title }}</td>
+                                    <td>{{ $product->features }}</td>
+                                    <td>{{ currencyFormatter($product->slashed_cost, false) }}</td>
+                                    <td>{{ currencyFormatter($product->actual_cost, false) }}</td>
+                                    <td><span class="badge badge-pill badge-primary">{{ $product->createdAtAgo() }}</span></td>
+                                    <td>
+                                        @if($product->deleted_at === NULL)
+                                            <a style="font-size: 8px;" href="{{ route('admin.edit_product', $product->id) }}" class="btn btn-default">
+                                                Edit
+                                            </a>
+                                            <button style="font-size: 8px;" onclick="openModal({{ $product->id }}, 'delete')" class="btn btn-danger">
+                                                Remove
+                                            </button>
+                                        @else
+                                            <button style="font-size: 8px;" onclick="openModal({{ $product->id }}, 'restore')" class="btn btn-success">
+                                                Restore
+                                            </button>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr class="text-center">
+                                <td colspan="7">No Products added!</td>
+                            </tr>
+                        @endif
+                    
+                    </tbody>
+                </table>
+            </div>
         </div>
         <button style="display: none;" id="modal-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Open modal

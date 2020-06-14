@@ -86,9 +86,10 @@
                                     <td><span class="badge badge-pill badge-success">{{ $user->verifiedAtAgo() }}</span></td>
                                     <td><span class="badge badge-pill badge-primary">{{ $user->createdAtAgo() }}</span></td>
                                     <td>
-                                        <a class="btn btn-default" href="{{ route('admin.edit_user', $user->id) }}">Edit</a>
+                                        
                                         
                                         @if($user->deleted_at === NULL)
+                                            <a class="btn btn-default" href="{{ route('admin.edit_user', $user->id) }}">Edit</a>
                                             <button style="font-size: 8px;" onclick="openModal({{ $user->id }}, 'delete')" class="btn btn-danger">
                                                 Delete
                                             </button>

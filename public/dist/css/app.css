@@ -36,10 +36,13 @@ h3 {
 
 textarea:hover,
 input:hover,
+select:hover,
 textarea:active,
 input:active,
+select:active,
 textarea:focus,
 input:focus,
+select:focus,
 button:focus,
 button:active,
 button:hover,

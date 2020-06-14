@@ -1,4 +1,4 @@
-@extends('admin.layouts.structure')
+@extends('admin.layouts.structure', ['sidebar_title' => 'Edit Product'])
 
 @section('dashboard_content')
     <div class="container">
@@ -119,7 +119,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary devugo-button">
                                         {{ __('Update') }}
                                     </button>
                                 </div>

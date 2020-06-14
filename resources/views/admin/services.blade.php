@@ -1,88 +1,94 @@
-@extends('admin.layouts.structure')
+@extends('admin.layouts.structure', ['sidebar_title' => 'Services'])
 
 @section('dashboard_content')
     <div class="container">
-        <div style="display: flex; justify-content: flex-end;">
-            <a class="btn btn-success" href="{{ route('admin.add_service') }}">
+        <div style="display: flex; justify-content: space-between;">
+            <h3 class="short-underline">Services</h3>
+            <a style="align-self: flex-start;" class="btn btn-success" href="{{ route('admin.add_service') }}">
                 Add +
             </a>
-        </div><br />
+        </div><br /><br />
         <div class="tab-summary">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="{{ route('admin.services') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
-                                <p>{{ $menusCount }}</p>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.services') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-bars"></i>
+                                </div>
                             </div>
-                            <div>
-                                <p>Active Services</p>
+                            <div class="count">
+                                <p>All Services</p>
+                                <p>{{ $menusCount }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="{{ route('admin.services', 'inactive') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
-                                <p>{{ $inactiveMenusCount }}</p>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.services', 'inactive') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-bars"></i>
+                                </div>
                             </div>
-                            <div>
+                            <div class="count">
                                 <p>Inactive Services</p>
+                                <p>{{ $inactiveMenusCount }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="table-responsive">
-            <h2>Services</h2>
-            <table class="table table-bordered" id="tab-table">
-                <thead>
-                    <tr class="text-center">
-                        <th>Main Menu</th>
-                        <th>Main Menun Slug</th>
-                        <th>Content</th>
-                        <th>Icon</th>
-                        <th>Created At</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(count($menus) > 0)
-                        @foreach($menus as $menu)
-                            <tr class="text-center">
-                                <td>{{ $menu->main_menu }}</td>
-                                <td>{{ $menu->main_menu_slug }}</td>
-                                <td>{{ $menu->content }}</td>
-                                <td>{{ $menu->icon }}</td>
-                                <td><span class="badge badge-pill badge-primary">{{ $menu->createdAtAgo() }}</span></td>
-                                <td>
-                                    @if($menu->deleted_at === NULL)
-                                        <a style="font-size: 8px;" href="{{ route('admin.edit_service', $menu->id) }}" class="btn btn-default">
-                                            Edit
-                                        </a>
-                                        <button style="font-size: 8px;" onclick="openModal({{ $menu->id }}, 'delete')" class="btn btn-danger">
-                                            Remove
-                                        </button>
-                                    @else
-                                        <button style="font-size: 8px;" onclick="openModal({{ $menu->id }}, 'restore')" class="btn btn-success">
-                                            Restore
-                                        </button>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
-                    @else
+        </div><br /><br />
+        <div class="devugo-card">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="devugo-table">
+                    <thead>
                         <tr class="text-center">
-                            <td colspan="7">No Services added!</td>
+                            <th>Main Menu</th>
+                            <th>Main Menun Slug</th>
+                            <th>Content</th>
+                            <th>Icon</th>
+                            <th>Created At</th>
+                            <th>Action</th>
                         </tr>
-                    @endif
-                
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @if(count($menus) > 0)
+                            @foreach($menus as $menu)
+                                <tr class="text-center">
+                                    <td>{{ $menu->main_menu }}</td>
+                                    <td>{{ $menu->main_menu_slug }}</td>
+                                    <td>{{ $menu->content }}</td>
+                                    <td>{{ $menu->icon }}</td>
+                                    <td><span class="badge badge-pill badge-primary">{{ $menu->createdAtAgo() }}</span></td>
+                                    <td>
+                                        @if($menu->deleted_at === NULL)
+                                            <a style="font-size: 8px;" href="{{ route('admin.edit_service', $menu->id) }}" class="btn btn-default">
+                                                Edit
+                                            </a>
+                                            <button style="font-size: 8px;" onclick="openModal({{ $menu->id }}, 'delete')" class="btn btn-danger">
+                                                Remove
+                                            </button>
+                                        @else
+                                            <button style="font-size: 8px;" onclick="openModal({{ $menu->id }}, 'restore')" class="btn btn-success">
+                                                Restore
+                                            </button>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr class="text-center">
+                                <td colspan="7">No Services added!</td>
+                            </tr>
+                        @endif
+                    
+                    </tbody>
+                </table>
+            </div>
         </div>
         <button style="display: none;" id="modal-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Open modal
