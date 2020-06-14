@@ -131,6 +131,61 @@ section .section-title h4 {
   color: white;
 }
 
+div.icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3ab3e7;
+  border-radius: 50%;
+}
+
+div.icon i {
+  color: white;
+}
+
+.dashboard-pill__wrapper {
+  color: black;
+}
+
+.dashboard-pill__wrapper:hover {
+  text-decoration: none;
+  color: #3ab3e7;
+}
+
+.dashboard-pill__wrapper .dashboard-pill {
+  position: relative;
+  overflow: visible;
+  transition: all 0.5s ease-in-out;
+}
+
+.dashboard-pill__wrapper .dashboard-pill:hover {
+  transform: translateY(-5px);
+  -webkit-filter: brightness(99%);
+          filter: brightness(99%);
+  border-bottom: 2px solid #3ab3e7;
+}
+
+.dashboard-pill__wrapper .dashboard-pill .icon-well {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-pill__wrapper .dashboard-pill .count {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
 @media screen and (min-width: 768px) {
   section {
     padding: 50px;
@@ -873,6 +928,7 @@ section .section-title h4 {
 .admin-sidebar__menu ul li a.active {
   text-decoration: none;
   font-weight: bold;
+  color: #3ab3e7;
 }
 
 .devugo-breadcrumb {

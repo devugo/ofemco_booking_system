@@ -41,7 +41,7 @@
         </div>
         <div class="table-responsive">
             <h2>Orders</h2>
-            <table class="table table-bordered" id="userorders">
+            <table class="table table-bordered" id="devugo-table">
                 <thead>
                     <tr class="text-center">
                         <th>SN</th>

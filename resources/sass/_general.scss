@@ -120,6 +120,64 @@ section {
     color: white;
 }
 
+div.icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary-color;
+    border-radius: 50%;
+
+    i {
+        // background: $primary-color;
+        color: white;
+        // padding:10px;
+        // border-radius: 50%;
+    }
+}
+
+
+.dashboard-pill__wrapper {
+    color: black;
+
+    &:hover {
+        text-decoration: none;
+        color: $primary-color;
+    }
+    
+    .dashboard-pill {
+        position: relative;
+        overflow: visible;
+        @include transition-ease;
+    
+        &:hover {
+            transform: translateY(-5px);
+            filter: brightness(99%);
+            border-bottom: 2px solid $primary-color;
+        }
+    
+        .icon-well{
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       .count {
+           margin-top: 20px;
+           display: flex;
+           justify-content: space-between;
+       }
+    }
+    
+}
+
 @include media-md {
     section {
         padding: 50px;

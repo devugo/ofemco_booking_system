@@ -83,6 +83,8 @@ class UserController extends Controller
         }else{
             return back();
         }
+
+        // return $userId;
         
         $validate = $this->validate($request, [
             'username' => "bail|required|unique:users,username,$userId|max:100",
