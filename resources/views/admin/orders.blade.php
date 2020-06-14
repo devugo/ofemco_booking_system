@@ -1,131 +1,143 @@
-@extends('admin.layouts.structure')
+@extends('admin.layouts.structure', ['sidebar_title' => 'Orders'])
 
 @section('dashboard_content')
     <div class="container">
+        <div style="display: flex; justify-content: space-between;">
+            <h3 class="short-underline">Orders</h3>
+        </div><br /><br />
         <div class="orders-summary">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="{{ route('admin.orders', 'all') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.orders', 'all') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-sort-alpha-up"></i>
+                                </div>
+                            </div>
+                            <div class="count">
+                                <p>All Orders</p>
                                 <p>{{ $ordersCount }}</p>
                             </div>
-                            <div>
-                                <p>All Orders</p>
-                            </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{ route('admin.orders', 'completed') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.orders', 'completed') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-sort-alpha-up"></i>
+                                </div>
+                            </div>
+                            <div class="count">
+                                <p>Completed Orders</p>
                                 <p>{{ $completedOrdersCount }}</p>
                             </div>
-                            <div>
-                                <p>Completed Orders</p>
-                            </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{ route('admin.orders', 'pending') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.orders', 'pending') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-sort-alpha-up"></i>
+                                </div>
+                            </div>
+                            <div class="count">
+                                <p>Pending Orders</p>
                                 <p>{{ $uncompletedOrdersCount }}</p>
                             </div>
-                            <div>
-                                <p>Pending Orders</p>
-                            </div>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{ route('admin.orders', 'deleted') }}">
-                        <div class="devugo-card">
-                            <div>
-                                <i class="fa fa-book"></i>
-                                <p>{{ $deletedOrdersCount }}</p>
+                    <a class="dashboard-pill__wrapper" href="{{ route('admin.orders', 'deleted') }}">
+                        <div class="devugo-card dashboard-pill">
+                            <div class="icon-well">
+                                <div class="icon">
+                                    <i class="fa fa-sort-alpha-up"></i>
+                                </div>
                             </div>
-                            <div>
+                            <div class="count">
                                 <p>Deleted Orders</p>
+                                <p>{{ $deletedOrdersCount }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="table-responsive">
-            <h2>Orders</h2>
-            <table class="table table-bordered" id="devugo-table">
-                <thead>
-                    <tr class="text-center">
-                        <th>Email</th>
-                        <th>Order ID</th>
-                        <th>Product</th>
-                        <th>Category</th>
-                        <th>Cost (NGN)</th>
-                        <th>Amount Paid (NGN)</th>
-                        <th>Status</th>
-                        <th>Created At</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if(count($orders) > 0)
-                        @foreach($orders as $order)
-                            <tr class="text-center">
-                                <td>{{ $order->user->email }}</td>
-                                <td>{{ $order->reference_id }}</td>
-                                <td>{{ $order->product->title }}</td>
-                                <td>{{ $order->product->service->sub_menu }}</td>
-                                <td>{{ currencyFormatter($order->product->actual_cost, false) }}</td>
-                                <td>{{ currencyFormatter($order->amount_paid, false) }}</td>
-                                <td>
-                                    @if($order->confirmed_at != NULL)
-                                    <span class="badge badge-pill badge-success">Confirmed</span>
-                                    @elseif($order->declined_at !== NULL)
-                                        <span class="badge badge-pill badge-danger">Declined</span>
-                                    @elseif($order->paid_at !== NULL && $order->verified_at === NULL)
-                                        <a data-toggle="tooltip" title="Contact support!"><span class="badge badge-pill badge-danger">Failed verification</span></a>
-                                    @elseif($order->paid_at !== NULL && $order->confirmed_at === NULL)
-                                        <span class="badge badge-pill badge-info">Awaiting Approval</span>
-                                    @elseif($order->paid_at === NULL)
-                                        <span class="badge badge-pill badge-warning">Not paid</span>
-                                    @elseif($order->paid_at !== NULL && $order->confirmed_at !== NULL)
-                                        <span class="badge badge-pill badge-success">Payment Received</span>
-                                    @endif
-                                </td>
-                                <td><span class="badge badge-pill badge-primary">{{ $order->createdAtAgo() }}</span></td>
-                                <td>
-                                    @if($order->deleted_at === NULL)
-                                        <button style="font-size: 8px;" onclick="openModal({{ $order->id }}, 'delete')" class="btn btn-danger">
-                                            Delete
-                                        </button>
-                                        @if($order->confirmed_at === NULL)
-                                            <button style="font-size: 8px;" onclick="openModal({{ $order->id }}, 'confirm')" class="btn btn-primary">
-                                                Confirm
+        </div><br /><br />
+        <div class="devugo-card">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="devugo-table">
+                    <thead>
+                        <tr class="text-center">
+                            <th>Email</th>
+                            <th>Order ID</th>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Cost (NGN)</th>
+                            <th>Amount Paid (NGN)</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(count($orders) > 0)
+                            @foreach($orders as $order)
+                                <tr class="text-center">
+                                    <td>{{ $order->user->email }}</td>
+                                    <td>{{ $order->reference_id }}</td>
+                                    <td>{{ $order->product->title }}</td>
+                                    <td>{{ $order->product->service->sub_menu }}</td>
+                                    <td>{{ currencyFormatter($order->product->actual_cost, false) }}</td>
+                                    <td>{{ currencyFormatter($order->amount_paid, false) }}</td>
+                                    <td>
+                                        @if($order->confirmed_at != NULL)
+                                        <span class="badge badge-pill badge-success">Confirmed</span>
+                                        @elseif($order->declined_at !== NULL)
+                                            <span class="badge badge-pill badge-danger">Declined</span>
+                                        @elseif($order->paid_at !== NULL && $order->verified_at === NULL)
+                                            <a data-toggle="tooltip" title="Contact support!"><span class="badge badge-pill badge-danger">Failed verification</span></a>
+                                        @elseif($order->paid_at !== NULL && $order->confirmed_at === NULL)
+                                            <span class="badge badge-pill badge-info">Awaiting Approval</span>
+                                        @elseif($order->paid_at === NULL)
+                                            <span class="badge badge-pill badge-warning">Not paid</span>
+                                        @elseif($order->paid_at !== NULL && $order->confirmed_at !== NULL)
+                                            <span class="badge badge-pill badge-success">Payment Received</span>
+                                        @endif
+                                    </td>
+                                    <td><span class="badge badge-pill badge-primary">{{ $order->createdAtAgo() }}</span></td>
+                                    <td>
+                                        @if($order->deleted_at === NULL)
+                                            <button style="font-size: 8px;" onclick="openModal({{ $order->id }}, 'delete')" class="btn btn-danger">
+                                                Delete
+                                            </button>
+                                            @if($order->confirmed_at === NULL)
+                                                <button style="font-size: 8px;" onclick="openModal({{ $order->id }}, 'confirm')" class="btn btn-primary">
+                                                    Confirm
+                                                </button>
+                                            @endif
+                                        @else
+                                            <button style="font-size: 8px;" onclick="openModal({{ $order->id }}, 'restore')" class="btn btn-success">
+                                                Restore
                                             </button>
                                         @endif
-                                    @else
-                                        <button style="font-size: 8px;" onclick="openModal({{ $order->id }}, 'restore')" class="btn btn-success">
-                                            Restore
-                                        </button>
-                                    @endif
-                                </td>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr class="text-center">
+                                <td colspan="7">No orders placed</td>
                             </tr>
-                        @endforeach
-                    @else
-                        <tr class="text-center">
-                            <td colspan="7">No orders placed</td>
-                        </tr>
-                    @endif
-                
-                </tbody>
-            </table>
+                        @endif
+                    
+                    </tbody>
+                </table>
+            </div>
         </div>
         <button style="display: none;" id="modal-button" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
             Open modal

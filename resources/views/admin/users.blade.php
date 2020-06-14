@@ -3,7 +3,7 @@
 @section('dashboard_content')
     <div class="container">
         <div style="display: flex; justify-content: space-between;">
-            <h2 class="short-underline">Users</h2>
+            <h3 class="short-underline">Users</h3>
             <a style="align-self: flex-start;" class="btn btn-success" href="{{ route('admin.add_user') }}">
                 Add +
             </a>
