@@ -51,6 +51,18 @@
     }
 }
 
+.home-brief {
+    padding: 0 !important;
+    .column-one {
+        background-color: #fffbf2;
+        height: 500px;
+    }
+    .column-two {
+        background-color: #fff6e0;
+        height: 500px;
+    }
+}
+
 .home-services {
     background-color: #f7f7f7;
 
@@ -67,7 +79,7 @@
             // transform: perspective(1px) translateZ(0);
             width: 250px;
             height: 250px;
-            color: black;
+            // color: black;
             position: relative;
             overflow: unset;
             cursor: pointer;
@@ -128,7 +140,7 @@
             }
 
             p, h5 {
-                color: black;
+                // color: black;
                 @include transition-ease;
             }
 
@@ -166,7 +178,7 @@
 }
 
 .home-why-choose {
-    background: linear-gradient(to right, $tertiary-color 0%, $secondary-color 28%, $primary-color 100%);
+    // background: linear-gradient(to right, $complimentary-color 0%, $complimentary-color-two 28%, $complimentary-color-two 100%);
     color: white;
 
     .section-title {

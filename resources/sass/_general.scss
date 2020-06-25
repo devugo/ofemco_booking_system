@@ -1,6 +1,6 @@
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1;
 }
@@ -19,6 +19,33 @@ h1, h2, h3 {
 
 .tertiary-color {
     color: $tertiary-color;
+}
+
+// Slide Carousel
+.carousel-fade .carousel-item {
+	opacity: 0;
+	transition-duration: .6s;
+	transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active,
+.carousel-fade .carousel-item-next.carousel-item-left,
+.carousel-fade .carousel-item-prev.carousel-item-right {
+	opacity: 1;
+}
+
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-right {
+	opacity: 0;
+}
+
+.carousel-fade .carousel-item-next,
+.carousel-fade .carousel-item-prev,
+.carousel-fade .carousel-item.active,
+.carousel-fade .active.carousel-item-left,
+.carousel-fade .active.carousel-item-prev {
+	transform: translateX(0);
+	transform: translate3d(0, 0, 0);
 }
 
 textarea:hover, 
@@ -73,7 +100,7 @@ section {
         top: 35px;
         height: 5px;
         width: 50px;
-        background-color: $primary-color;
+        background-color: $complimentary-color;
     }
 }
 
@@ -142,7 +169,7 @@ div.icon {
 
 
 .dashboard-pill__wrapper {
-    color: black;
+    // color: black;
 
     &:hover {
         text-decoration: none;

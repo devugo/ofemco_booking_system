@@ -35,6 +35,7 @@ Route::get('/admin/profile', 'AdminController@profile')->name('admin.profile')->
 Route::get('/admin/orders/{type?}', 'AdminController@orders')->name('admin.orders')->middleware('auth', 'admin');
 // Route::get('/admin/notifications', 'AdminController@notifications')->name('admin.notifications')->middleware('auth', 'admin');
 Route::get('/admin/settings', 'AdminController@settings')->name('admin.settings')->middleware('auth', 'admin');
+Route::post('/admin/settings', 'SettingController@update')->name('settings.update')->middleware('auth', 'admin');
 Route::get('/admin/edit-user/{user}', 'AdminController@edit_user')->name('admin.edit_user')->middleware('auth', 'admin');
 Route::get('/admin/add-user', 'AdminController@add_user')->name('admin.add_user')->middleware('auth', 'admin');
 Route::get('/admin/subscribers/{type?}', 'AdminController@subscribers')->name('admin.subscribers')->middleware('auth', 'admin');

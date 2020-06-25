@@ -54,3 +54,12 @@
         }
     }
 }
+
+.bottom-nav {
+    display: flex;
+    align-items: center;
+    height: 15px;
+    background-color: $tertiary-color;
+    color: white;
+    font-size: 12px;
+}

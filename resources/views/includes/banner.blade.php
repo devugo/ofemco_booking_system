@@ -1,5 +1,5 @@
 <section class="banner-carousel" id="banner-carousel">
-    <div id="demo" style="margin: 0 !important; padding: 0 !important; width: 100% !important;" class="carousel slide" data-ride="carousel">
+    <div id="demo" style="margin: 0 !important; padding: 0 !important; width: 100% !important;" class="carousel slide carousel-fade" data-ride="carousel">
         <ul class="carousel-indicators">
             <li data-target="#demo" data-slide-to="0" class="active"></li>
             <li data-target="#demo" data-slide-to="1"></li>
@@ -7,10 +7,10 @@
         </ul>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="/storage/images/settings/{{$settings->carousel_image_1}}" alt="Los Angeles">
+                {{-- <img src="/storage/images/settings/{{$settings->carousel_image_1}}" alt="Los Angeles"> --}}
             </div>
             <div class="carousel-item">
-                <img src="/storage/images/settings/{{$settings->carousel_image_2}}" alt="Chicago">
+                {{-- <img src="/storage/images/settings/{{$settings->carousel_image_2}}" alt="Chicago"> --}}
             </div>
             <div class="carousel-item">
                 <img src="/storage/images/settings/{{$settings->carousel_image_3}}" alt="New York">
@@ -36,21 +36,22 @@
     <div class="banner-below">
         <div class="banner-below__row text-center">
             <div class="first">
-                <i class="fa fa-snowflake fa-2x"></i>
+                <img style="width: 40px; height: 40px;" src={{asset('storage/images/settings/reputation_filled.png')}} />
                 <div>
                     <h4 class="underline-me">Reputation</h4>
                     <span>10Yrs+</span>
                 </div>
             </div>
             <div class="second">
-                <i class="fa fa-product-hunt fa-2x"></i>
+                <img style="width: 40px; height: 40px;" src={{asset('storage/images/settings/shopping2.png')}} />
                 <div>
                     <h4 class="underline-me">Products</h4>
                     <span>65+</span>
                 </div>
             </div>
             <div class="third">
-                <i class="fa fa-network-wired fa-2x"></i>
+                {{-- <i class="fa fa-network-wired fa-2x"></i> --}}
+                <img style="width: 40px; height: 40px;" src={{asset('storage/images/settings/clients.png')}} />
                 <div>
                     <h4 class="underline-me">Clients</h4>
                     <span>15+</span>

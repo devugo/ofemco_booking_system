@@ -42,6 +42,18 @@
             </div>
         </div>
     </section>
+    <section class="home-brief">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <div class="column-one">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="column-two">
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="home-services" id="home-services">
         <div class="container">
             <div class="section-title home-services__title">

@@ -1,7 +1,10 @@
-$primary-color: #3ab3e7;
+$primary-color: #112D4E;
+$primary-text-color: #333333;
 $complimentary-color: #e7743a;
+$complimentary-color-two: #e67c48;
+$complimentary-color-three: #e68d61;
 // $primary-color: #26226c;
-$secondary-color: #009ee2;
+$secondary-color: #3F72AF;
 $tertiary-color: #0078ac;
 $blacky-color: rgb(24, 21, 21);
 // $tertiary-color: #4c57e5;
@@ -14,9 +17,13 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     // 'Open Sans'
     // font-family: 'Courier New', Courier, monospace;
+}
+
+h1,h2,h3,h4,h5,h6,p{
+    color: #333333;
 }
 
 @mixin transition-ease {

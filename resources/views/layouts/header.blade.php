@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#"><img class="site-logo" src="{{ getLogo() }}" alt="logo" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
         @endif
         @if (Route::has('login'))
           @auth
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link btn" href="{{ Auth::user()->role_id === 2 ? route('user.dashboard') : route('admin.dashboard') }}">Dashboard</a>
             </li>
             <li class="nav-item">
@@ -43,11 +43,11 @@
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
               </form>
-            </li>
+            </li> --}}
           @else
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="btn nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-            </li>
+            </li> --}}
 
             @if (Route::has('register'))
               {{-- <li class="nav-item">
@@ -59,3 +59,6 @@
       </ul>
     </div>
   </nav>
+  <div class="bottom-nav">
+    <marquee>A scrolling text created with HTML Marquee</marquee>
+  </div>
