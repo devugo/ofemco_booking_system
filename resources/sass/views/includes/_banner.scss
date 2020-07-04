@@ -12,19 +12,20 @@
         height: 550px;
     }
     .carousel-item:first-child {   
-        background: linear-gradient(rgba(17, 45, 78, 0.8),rgba(17,45,78,0.8)),url('../../../../public/storage/images//settings/home-banner.jpg') no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0,0,0,0.6)),url('../../../../public/storage/images//settings/home-banner.jpg') no-repeat;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
     .carousel-item:nth-child(2) {   
-        background: linear-gradient(rgba(17, 45, 78, 0.8),rgba(17,45,78,0.8)),url('../../../../public/storage/images//settings/home-banner-2.jpg') no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0,0,0,0.6)),url('../../../../public/storage/images//settings/home-banner-2.jpg') no-repeat;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
     .carousel-item:nth-child(3) {   
-        background: linear-gradient(rgba(17, 45, 78, 0.8),rgba(17,45,78,0.8)),url('../../../../public/storage/images//settings/home-banner-3.jpg') no-repeat;
+        // background: linear-gradient(rgba(17, 45, 78, 0.8),rgba(17,45,78,0.8)),url('../../../../public/storage/images//settings/home-banner-3.jpg') no-1repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0,0,0,0.6)),url('../../../../public/storage/images//settings/home-banner-3.jpg') no-repeat;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -38,38 +39,57 @@
 
     .banner-text {
         position: absolute;
-        top: 100px;
-        left: 30px;
-        color: #f3f3f3;
-        max-width: 300px;
+        // top: 100px;
+        top: 170px; //mobile
+        left: 10%;
+        right: 10%;
+        color: white;
+        // max-width: 300px;
+        // width: 100%; // mobile
+        text-align: center;
 
-        p {
-            line-height: 30px;
-        }
-
-        #get-quote-btn {
-            background: linear-gradient(to right, $primary-color 0%, #4dbcec 28%, #7dc4e2 100%);
-            border-radius: 20px;
-            font-weight: bold;
-
-            &:hover {
-                background: inherit;
-                color: $primary-color;
+        div{
+            h1{
+                text-shadow: 2px 2px 4px #000000;
+                color: white;
+            }
+            p {
+                line-height: 30px;
+                color: white;
+            }
+    
+            #get-quote-btn {
+                // background: linear-gradient(to right, $primary-color 0%, #4dbcec 28%, #7dc4e2 100%);
+                background: $primary-color;
+                color: white;
+                border-radius: 20px;
+                font-weight: bold;
+                border-color: $primary-color;
+                @include transition-ease;
+    
+                &:hover {
+                    background: $secondary-color;
+                }
             }
         }
+       
     }
 
     .banner-below {
-        position: absolute;
-        bottom: -60px;
-        left: 5%;
-        width: 90%;
+        // position: absolute;
+        position: static; // mobile
+        // bottom: -60px;
+        // left: 5%;
+        // width: 100%;
         // width: 800px;
-        background-color: $secondary-color;
+        background-color: white;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
         border-radius: 10px;
-        z-index: 20;
-        padding: 20px 0;
+        z-index: 15;
+        border-bottom: 2px solid $secondary-color;
+        // margin-left: 5%; // mobile
+        // margin-top: 30px;
+        // padding: 20px 0;
 
         &__title {
             margin-bottom: 20px;
@@ -77,16 +97,32 @@
 
         &__row {
             display: flex;
-            // flex-direction: column;
+            flex-direction: column; // Mobile
             justify-content: space-around;
 
             h4 {
-                font-size: 16px;
+                font-size: 20px;
+                position: relative;
+                margin-top: 15px;
+                margin-bottom: 10px;
+                font-weight: bold;
+
+                &::after{
+                    position: absolute;
+                    content: '';
+                    top: 24px;
+                    width: 0px;
+                    height: 3px;
+                    background-color: $primary-color;
+                    left: calc(50% - 50px);
+                    @include transition-ease;
+                }
             }
 
             span {
-                font-size: 20px;
-                color: white;
+                font-size: 30px;
+                color: $secondary-color;
+                font-weight: bold;
             }
             i {
                 color: white;
@@ -98,18 +134,29 @@
                 background-color: white;
                 content: '';
             }
+            & > div {
+                // width: 33%;
+                width: 100%; //mobile
+                border-bottom: 2px solid rgb(236, 236, 236);
+                padding: 40px 20px;
+                // margin-top: 50px;
+                @include transition-ease;
 
-            .first {
-                width: 33%;
-                border-right: 2px solid rgb(236, 236, 236);
+                &:hover {
+                    background: $tertiary-color;
+                }
             }
-            .second {
-                width: 33%;
-                border-right: 2px solid rgb(236, 236, 236);
+
+            & > div:last-child {
+                border-right: 0px;
             }
-            .third {
-                width: 33%;
-            }
+
+            div:hover{
+                cursor: pointer;
+                h4:after {
+                    width: 100px;
+                }
+            } 
         }
     }
 }
@@ -118,17 +165,38 @@
     .banner-carousel {
 
         .banner-text {
-            max-width: 40%;
-            left: 100px;
 
             #get-quote-btn {
-                margin-top: 30px;
+                height: 50px;
+                width: 200px;
+                font-size: 20px;
             }
+        }
+    }
+}
+
+@include media-md-bootstrap {
+    .banner-carousel {
+
+        .banner-text {
+            width: 50%;
+            text-align: left;
         }
         
         .banner-below {
-            width: 750px;
-            left: calc(50vw - 375px);
+            position: absolute;
+            bottom: -140px;
+            left: 10%;
+            width: 80%;
+    
+            &__row {
+                flex-direction: row;
+              
+                & > div {
+                    border-right: 2px solid rgb(236, 236, 236);
+                    border-bottom: 0px;
+                }
+            }
         }
     }
 }
@@ -140,12 +208,11 @@
             top: 150px;
 
             #get-quote-btn {
-                height: 50px;
+                height: 60px;
+                font-size: 25px;
                 display: flex;
-                align-items: center;
                 justify-content: center;
-                width: 200px;
-                font-size: 20px;
+                align-items: center;
             }
         }
     }

@@ -1,4 +1,10 @@
 .navbar {
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25) !important;
+    position: fixed;
+    z-index: 20;
+    background: $tertiary-color;
+    width: 100%;
+
     .site-logo {
         width: 100px; 
         height: 40px;
@@ -62,4 +68,11 @@
     background-color: $tertiary-color;
     color: white;
     font-size: 12px;
+}
+
+@include media-md-bootstrap {
+    .navbar {
+        height: 100px;
+        background: white;
+    }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
     @include('includes.banner')
-    <br /><br /><br /><br /><br /><br />
+    
     <section class="home-about" id="home-about">
         <div class="container">
             <div class="section-title">
@@ -12,7 +12,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="home-about__first">
                         <div class="home-about__first-img">
-                            <img id="about-illustration" class="animate__animated animate__fadeInLeft animate__faster" src="{{ URL::asset('storage/images/settings/about.png') }}" alt="banner" />
+                            <img id="about-illustration" class="animate__animated animate__fadeInLeft animate__faster" src="{{ URL::asset('storage/images/settings/undraw_hire_te5y (2).svg') }}" alt="banner" />
                         </div><br />
                     </div><br /><br /><br /><br />
                 </div>

@@ -5,7 +5,7 @@ $complimentary-color-two: #e67c48;
 $complimentary-color-three: #e68d61;
 // $primary-color: #26226c;
 $secondary-color: #3F72AF;
-$tertiary-color: #0078ac;
+$tertiary-color: #DBE2EF;
 $blacky-color: rgb(24, 21, 21);
 // $tertiary-color: #4c57e5;
 
@@ -53,6 +53,11 @@ h1,h2,h3,h4,h5,h6,p{
 
 @mixin media-md {
     @media screen and (min-width: 768px){
+        @content;
+    }
+}
+@mixin media-md-bootstrap {
+    @media screen and (min-width: 992px){
         @content;
     }
 }
