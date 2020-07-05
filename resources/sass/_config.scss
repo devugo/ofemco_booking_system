@@ -1,11 +1,7 @@
 $primary-color: #112D4E;
-$primary-text-color: #333333;
-$complimentary-color: #e7743a;
-$complimentary-color-two: #e67c48;
-$complimentary-color-three: #e68d61;
-// $primary-color: #26226c;
 $secondary-color: #3F72AF;
 $tertiary-color: #DBE2EF;
+$primary-text-color: #333333;
 $blacky-color: rgb(24, 21, 21);
 // $tertiary-color: #4c57e5;
 
@@ -31,11 +27,11 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 @mixin primary-gradient {
-    background: linear-gradient(to right, $primary-color 0%, #4dbcec 28%, #7dc4e2 100%);
+    background: linear-gradient(to right, $primary-color 0%, #153861 28%, #385c83 100%);
 }
 
 @mixin secondary-gradient {
-    background: linear-gradient(to right, $secondary-color 0%, $primary-color 28%, #4dbcec 100%);
+    background: linear-gradient(to right, $secondary-color 0%, #5380b8 28%, #7296c2 100%);
 }
 
 @mixin tertiary-gradient {
@@ -49,7 +45,6 @@ h1,h2,h3,h4,h5,h6,p{
         @return #fff;
     }
 }
-//font-family: 'Courier New', Courier, monospace;
 
 @mixin media-md {
     @media screen and (min-width: 768px){

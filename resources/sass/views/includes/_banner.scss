@@ -145,6 +145,10 @@
                 &:hover {
                     background: $tertiary-color;
                 }
+
+                p{
+                    line-height: 20px;
+                }
             }
 
             & > div:last-child {
@@ -209,7 +213,6 @@
 
             #get-quote-btn {
                 height: 60px;
-                font-size: 25px;
                 display: flex;
                 justify-content: center;
                 align-items: center;

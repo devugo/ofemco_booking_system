@@ -4,8 +4,8 @@
             <div class="col-lg-3 col-md-6 col-sm-12">
                 <div class="brief-about">
                     <img src="{{ getLogo() }}" />
-                    <p><span class="primary-color">Ofemco Services Ltd. </span> the proliferation of website design companies in Nigeria offering bottom price template designs, finding a webmaster in Nigeria...</p>
-                    <a href="#home-about" class="btn btn-info">READ MORE</a>
+                    <p><span>Ofemco Services Ltd. </span> the proliferation of website design companies in Nigeria offering bottom price template designs, finding a webmaster in Nigeria...</p>
+                    <a href="#home-about" class="btn">READ MORE</a>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">

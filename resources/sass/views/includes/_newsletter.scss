@@ -1,6 +1,5 @@
 .home-newsletter {
-    // background: linear-gradient(to right, $tertiary-color 0%, $secondary-color 28%, $primary-color 100%);
-    // background: $complimentary-color;
+    background: $tertiary-color;
     text-align: center;
 
     .container {
@@ -9,7 +8,7 @@
         justify-content: center;
 
         h3 {
-            color: white;
+            color: $primary-color;
         }
 
         form {
@@ -18,12 +17,13 @@
             justify-content: center;
 
             .btn-subscribe {
-                background-color: $blacky-color;
+                background-color: $primary-color;
+                border: 1px solid $primary-color;
                 color: white;
 
                 &:hover {
-                    background-color: rgb(32, 32, 32);
-                    border: 1px solid $tertiary-color;
+                    background-color: $secondary-color;
+                    border: 1px solid $secondary-color;
                 }
             }
 
