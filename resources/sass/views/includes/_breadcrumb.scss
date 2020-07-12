@@ -1,14 +1,27 @@
 .breadcrumb {
-    background: linear-gradient(to right, $secondary-color 0%, $primary-color 28%, #4dbcec 100%);
+    background: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0,0,0,0.6)),url('../../../../public/storage/images//settings/home-banner-2.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    // height: 100px;
+    margin-top: 55px;
 
     &-body {
         display: flex;
         flex-direction: column;
-        width: 100%;
         align-items: center;
+        padding: 50px 20px;
+        h4 {
+            color: white;
+            font-size: 40px;
+        }
+        width: 100%;
+        // align-items: center;
 
-        ol {
+        ul {
             background: inherit;
+            list-style: none;
+            display: flex;
         }
         
         a {
@@ -26,11 +39,17 @@
 @include media-md {
     .breadcrumb {
         &-body {
-            flex-direction: row;
-            justify-content: space-between;
-            margin-left: 15px;
+            // flex-direction: row;
+            // justify-content: space-between;
+            // margin-left: 15px;
             // align-items: center;
             // justify-content: space-between;
         }
+    }
+}
+
+@include media-md-bootstrap {
+    .breadcrumb {
+        margin-top: 65px;
     }
 }

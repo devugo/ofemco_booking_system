@@ -83,7 +83,7 @@ section {
 
     .section-title {
         h4{
-            font-family: 'Courier New', Courier, monospace;
+            // font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -114,6 +114,19 @@ section {
     overflow: hidden;
     background: white;
     padding: 20px;
+}
+
+.feature-card{
+    border: 1px solid #e1eeff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .05);
+    padding: 30px 15px;
+    overflow: hidden;
+    position: relative;
+    @include transition-ease;
+
+    &:hover {
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    }
 }
 
 .input-icon {

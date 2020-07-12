@@ -103,7 +103,6 @@ section {
 }
 
 section .section-title h4 {
-  font-family: "Courier New", Courier, monospace;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -132,6 +131,19 @@ section .section-title h4 {
   overflow: hidden;
   background: white;
   padding: 20px;
+}
+
+.feature-card {
+  border: 1px solid #e1eeff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding: 30px 15px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+.feature-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
 .input-icon {
@@ -233,6 +245,7 @@ div.icon i {
   z-index: 20;
   background: #DBE2EF;
   width: 100%;
+  height: 70px;
 }
 
 .navbar .site-logo {
@@ -247,9 +260,10 @@ div.icon i {
 }
 
 .navbar .dropdown-menu a {
-  height: 70px;
+  height: 30px;
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .navbar .dropdown-menu a:active {
@@ -301,7 +315,7 @@ div.icon i {
 
 @media screen and (min-width: 992px) {
   .navbar {
-    height: 100px;
+    height: 80px;
     background: white;
   }
 }
@@ -532,6 +546,7 @@ div.icon i {
   background-color: #112D4E;
   border: 1px solid #112D4E;
   color: white;
+  transition: all 0.5s ease-in-out;
 }
 
 .home-newsletter .container form .btn-subscribe:hover {
@@ -680,18 +695,30 @@ div.icon i {
 }
 
 .breadcrumb {
-  background: linear-gradient(to right, #3F72AF 0%, #112D4E 28%, #4dbcec 100%);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/images/home-banner-2.jpg?c531918a0fdccf282e78c2bed733c2e0) no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 55px;
 }
 
 .breadcrumb-body {
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: center;
+  padding: 50px 20px;
+  width: 100%;
 }
 
-.breadcrumb-body ol {
+.breadcrumb-body h4 {
+  color: white;
+  font-size: 40px;
+}
+
+.breadcrumb-body ul {
   background: inherit;
+  list-style: none;
+  display: flex;
 }
 
 .breadcrumb-body a {
@@ -703,11 +730,9 @@ div.icon i {
   text-decoration: none;
 }
 
-@media screen and (min-width: 768px) {
-  .breadcrumb-body {
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: 15px;
+@media screen and (min-width: 992px) {
+  .breadcrumb {
+    margin-top: 65px;
   }
 }
 
@@ -988,13 +1013,21 @@ div.icon i {
   margin-bottom: 30px;
 }
 
-.home-abstract__first div {
+.home-abstract__first > div {
   margin-top: 50px;
 }
 
-.home-abstract__first div ul {
+.home-abstract__first > div ul {
   margin-left: 30px;
   list-style-type: square;
+}
+
+.home-abstract__first > div ul li {
+  line-height: 30px;
+}
+
+.home-abstract__first > div p {
+  line-height: 30px;
 }
 
 .home-abstract__second img {
@@ -1048,11 +1081,11 @@ div.icon i {
 .home-pricing .price-card:hover {
   cursor: pointer;
   transform: translateY(-10px);
-  background: linear-gradient(to right, #DBE2EF 0%, #3F72AF 28%, #112D4E 100%);
+  background: linear-gradient(to right, #3F72AF 0%, #5380b8 28%, #7296c2 100%);
 }
 
 .home-pricing .price-card:hover .price-card__icon {
-  background: linear-gradient(to right, #DBE2EF 0%, #3F72AF 28%, #112D4E 100%);
+  background: linear-gradient(to right, #112D4E 0%, #153861 28%, #385c83 100%);
 }
 
 .home-pricing .price-card:hover .price-card__icon i {
@@ -1120,6 +1153,49 @@ div.icon i {
 .home-pricing .price-card .order-btn:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.home-menu__services {
+  background-color: white;
+}
+
+.home-menu__services a {
+  text-decoration: none;
+}
+
+.home-menu__services .devugo-card {
+  background-color: #f3f3f3;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: all 0.5s ease-in-out;
+}
+
+.home-menu__services .devugo-card:hover {
+  margin-top: -5px;
+}
+
+.home-menu__services .devugo-card:hover img {
+  -webkit-filter: brightness(90%);
+          filter: brightness(90%);
+}
+
+.home-menu__services .devugo-card img {
+  width: 100%;
+  height: 100px;
+  transition: all 0.5s ease-in-out;
+}
+
+.home-menu__services .devugo-card h4 {
+  font-size: 18px;
+  color: #3F72AF;
+  margin-top: 5px;
+}
+
+.home-menu__services .devugo-card p {
+  font-size: 15px;
+  margin-top: 15px;
 }
 
 @media screen and (min-width: 768px) {

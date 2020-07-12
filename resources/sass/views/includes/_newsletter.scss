@@ -20,6 +20,7 @@
                 background-color: $primary-color;
                 border: 1px solid $primary-color;
                 color: white;
+                @include transition-ease;
 
                 &:hover {
                     background-color: $secondary-color;

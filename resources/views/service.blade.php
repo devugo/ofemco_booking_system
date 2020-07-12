@@ -10,19 +10,19 @@
     <section class="home-abstract">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="home-abstract__first section-title">
-                        <h4 class="short-underline">{{ $service->title }}</h4>
+                        <h4 class="short-underline">{{ $service->sub_menu }}</h4>
                         <div>
-                            {{ $service->content }}
+                            {!! $service->content !!}
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                {{-- <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="home-abstract__second">
                         <img src="{{ URL::asset('images/services/banner.jpg') }}" alt="banner" />
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -35,14 +35,14 @@
             </div>
             <div class="sub-title text-center">
                 <h5>
-                    Below a list of our <span><strong>{{ $service->title }}</strong></span> packages
+                    Below a list of our <span><strong>{{ $service->sub_menu }}</strong></span> packages
                 </h5>
             </div>
             <div class="row">
                 @if(count($products) > 0)
                     @foreach($products as $product)
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="devugo-card price-card text-center">
+                            <div class="devugo-card price-card text-center" data-aos="fade-up">
                                 <div class="price-card__icon">
                                     <i class="fa {{ $product->icon }}"></i>
                                 </div>
@@ -77,6 +77,24 @@
                     @endforeach
                 @endif
             </div><br /><br />
+        </div>
+    </section>
+
+    <section class="home-menu__services">
+        <div class="container">
+            <div class="row">
+                @foreach($allServices as $service)
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <a href="/{{ $service->menu->main_menu_slug }}/{{ $service->sub_menu_slug }}">
+                            <div class="devugo-card" data-aos="fade-up">
+                                <img src="@if($service->image){{ URL::asset("storage/images/services/$service->image") }}@else{{ URL::asset("storage/images/services/default.jpg") }}@endif" />
+                                <h4>{{ $service->sub_menu }}</h4>
+                                <p>{{ $service->title }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
         </div>
     </section>
 

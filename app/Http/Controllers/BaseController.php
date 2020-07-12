@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Menu;
+use App\Service;
 use App\Setting;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,7 @@ class BaseController extends Controller
 
     public function service($menu, $service)
     {
+        $allServices = Service::all();
         $menus = Menu::all();
         $menu = $menus->where('main_menu_slug', $menu)->first();
 
@@ -56,7 +58,8 @@ class BaseController extends Controller
             'service',
             'menu',
             'products',
-            'pageTitle'
+            'pageTitle',
+            'allServices'
         ]));
     }
 }
